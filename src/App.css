@@ -150,7 +150,14 @@ section {
   margin: 3rem auto;
   max-width: 1200px;
   padding: 0 1rem;
+  animation: scroll 20s linear infinite; /*added auto-scrolling animation*/
 }
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
 
 .service-card {
   background: white;
@@ -467,6 +474,13 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
+  animation: scrollProject 20s linear infinite; /*added auto-scrolling animation*/
+
+}
+
+@keyframes scrollProject {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 .project-card .project-image {
@@ -903,100 +917,10 @@ footer {
     padding: 0.5rem;
   }
 
-@media (max-width: 480px) {
-  .hero1 {
-    font-size: 2rem;
-  }
-
-  .hero1 span:hover {
-    font-size: 2.3rem;
-  }
-
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-
-  .about-stats {
-    grid-template-columns: 1fr;
-  }
-}
-
-.service-scroll-controls {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
-
-.service-grid-container {
-  overflow: hidden;
-  width: 100%;
-}
-
-.service-grid {
-  display: flex;
-  scroll-behavior: smooth;
-  overflow-x: auto;
-  padding: 20px 0;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  cursor: grab;
-  user-select: none;
-}
-
-.service-grid:active {
-  cursor: grabbing;
-}
-
-.service-grid::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
-}
-
-.service-scroll-btn {
-  background: #34495e;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  width: 80px;
-  height: 40px;
-  font-size: 22px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(44, 62, 80, 0.3);
-}
-
-.service-scroll-btn:hover {
-  background: #2c3e50;
-}
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
-}
-
-.service-card {
-  min-width: 280px;
-  margin-right: 20px;
-  flex: 0 0 auto;
-}
-
-/* Project carousel styles */
 .project-carousel {
   position: relative;
-  display: flex;
-  align-items: center;
   margin: 30px 0;
-  padding: 0 40px;
+  overflow: hidden;
 }
 
 .project-viewport {
@@ -1007,23 +931,12 @@ footer {
 
 .project-slider {
   display: flex;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  transition: transform 0.5s ease;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  transition: transform 0.5s ease-in-out;
   gap: 30px;
-  cursor: grab;
-  user-select: none;
 }
-
-.project-slider:active {
-  cursor: grabbing;
-}
-
-.project-slider::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, and Opera */
-}
-
 
 .modal-body {
   padding: 20px;

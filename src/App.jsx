@@ -474,11 +474,11 @@ export default function App() {
   useEffect(() => {
     const projectInterval = setInterval(() => {
       navigateProjects('next');
-    }, 5000);
+    }, 3000);
 
     const serviceInterval = setInterval(() => {
       navigateServices('next');
-    }, 5000);
+    }, 3000);
 
     return () => {
       clearInterval(projectInterval);
@@ -574,13 +574,6 @@ export default function App() {
         <section id="services" className="services">
           <h2 data-aos="fade-up">Our Services</h2>
           <div className="service-scroll-controls">
-            <button 
-              className="service-scroll-btn prev-btn" 
-              onClick={() => navigateServices('prev')}
-              aria-label="Previous services"
-            >
-              ←
-            </button>
             <div className="service-grid-container">
               <div className="service-grid" ref={servicesRef}>
                 {services.map((service, index) => (
@@ -641,14 +634,6 @@ export default function App() {
         <section id="projects" className="projects">
           <h2 data-aos="fade-up">Recent Projects</h2>
           <div className="project-carousel">
-            <button 
-              className="project-nav prev" 
-              onClick={() => navigateProjects('prev')}
-              aria-label="Previous project"
-            >
-              ←
-            </button>
-
             <div className="project-viewport">
               <div className="project-slider" ref={projectsRef}>
                 {projects.map((project, index) => (
@@ -675,13 +660,6 @@ export default function App() {
                 ))}
               </div>
             </div>
-            <button 
-              className="project-nav next" 
-              onClick={() => navigateProjects('next')}
-              aria-label="Next project"
-            >
-              →
-            </button>
           </div>
 
           {selectedProject && (
