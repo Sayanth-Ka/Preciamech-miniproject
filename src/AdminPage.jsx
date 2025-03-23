@@ -7,7 +7,10 @@ import './AdminPage.css';
 
 const AdminPage = () => {
   const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(() => {
+    const stored = sessionStorage.getItem('isAdmin');
+    return stored === 'true';
+  });
   const [adminUsername, setAdminUsername] = useState('');
   const [adminPassword, setAdminPassword] = useState('');
   const [pendingQuestions, setPendingQuestions] = useState([]);
@@ -72,6 +75,7 @@ const AdminPage = () => {
       );
 
       if (admin) {
+        sessionStorage.setItem('isAdmin', 'true');
         setIsAdmin(true);
       } else {
         setLoginError('Invalid username or password');
@@ -250,7 +254,11 @@ const AdminPage = () => {
         <div className="admin-dashboard">
           <div className="admin-header">
             <h2>Admin Dashboard</h2>
-            <button onClick={() => setIsAdmin(false)}>Logout</button>
+            <button onClick={() => {
+  sessionStorage.removeItem('isAdmin');
+  setIsAdmin(false);
+  navigate('/');
+}}>Logout</button>
           </div>
 
           <div className="admin-sections">
