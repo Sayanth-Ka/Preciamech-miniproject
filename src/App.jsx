@@ -474,11 +474,11 @@ export default function App() {
   useEffect(() => {
     const projectInterval = setInterval(() => {
       navigateProjects('next');
-    }, 3000);
+    }, 2500);
 
     const serviceInterval = setInterval(() => {
       navigateServices('next');
-    }, 3000);
+    }, 2500);
 
     return () => {
       clearInterval(projectInterval);
