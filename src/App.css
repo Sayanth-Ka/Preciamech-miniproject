@@ -458,9 +458,9 @@ section {
 
 
 .project-card {
-  min-width: 160px;
-  max-width: 180px;
-  margin-right: 10px;
+  min-width: 180px;
+  max-width: 200px;
+  margin-right: 12px;
   flex: 0 0 auto;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
@@ -525,31 +525,16 @@ section {
 
 .image-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
-  padding: 8px;
-  max-width: 100%;
-  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px;
 }
 
 .image-grid img {
   width: 100%;
-  height: 120px;
+  height: auto;
   object-fit: cover;
-  border-radius: 50%;
-  animation: pulseAndRotate 4s infinite;
-  transition: transform 0.3s ease;
-}
-
-@keyframes pulseAndRotate {
-  0% { transform: scale(1) rotate(0deg); }
-  50% { transform: scale(1.05) rotate(180deg); }
-  100% { transform: scale(1) rotate(360deg); }
-}
-
-.image-grid img:hover {
-  transform: scale(1.1);
-  animation-play-state: paused;
+  border-radius: 8px;
 }
 
 .about {
@@ -1103,10 +1088,9 @@ footer {
 }
 
 .service-card {
-  min-width: 160px;
-  max-width: 180px;
-  margin-right: 12px;
-  padding: 8px;
+  min-width: 180px;
+  margin-right: 15px;
+  padding: 10px;
 }
 
 
