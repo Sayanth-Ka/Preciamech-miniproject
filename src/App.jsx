@@ -399,7 +399,7 @@ export default function App() {
     let currentScroll = projectsRef.current.scrollLeft;
 
     if (direction === 'next') {
-      if (currentScroll >= maxScroll) {
+      if (currentScroll >= maxScroll - 50) {
         // Reset to start with animation
         cards.forEach(card => {
           const clone = card.cloneNode(true);
@@ -420,7 +420,7 @@ export default function App() {
       }
       projectsRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
     } else {
-      if (currentScroll <= 0) {
+      if (currentScroll <= 50) {
         // Add cards to the start
         Array.from(cards).reverse().forEach(card => {
           const clone = card.cloneNode(true);
@@ -453,7 +453,7 @@ export default function App() {
     let currentScroll = servicesRef.current.scrollLeft;
 
     if (direction === 'next') {
-      if (currentScroll >= maxScroll) {
+      if (currentScroll >= maxScroll - 50) {
         // Move all cards to the beginning with animation
         servicesRef.current.style.transition = 'transform 0.5s ease';
         servicesRef.current.scrollLeft = 0;
@@ -461,7 +461,7 @@ export default function App() {
         servicesRef.current.scrollBy({ left: cardWidth, behavior: 'smooth' });
       }
     } else {
-      if (currentScroll <= 0) {
+      if (currentScroll <= 50) {
         // Move to the end with animation
         servicesRef.current.style.transition = 'transform 0.5s ease';
         servicesRef.current.scrollLeft = maxScroll;
@@ -470,6 +470,21 @@ export default function App() {
       }
     }
   };
+
+  useEffect(() => {
+    const projectInterval = setInterval(() => {
+      navigateProjects('next');
+    }, 5000);
+
+    const serviceInterval = setInterval(() => {
+      navigateServices('next');
+    }, 5000);
+
+    return () => {
+      clearInterval(projectInterval);
+      clearInterval(serviceInterval);
+    };
+  }, []);
 
   useEffect(() => {
     AOS.init({
