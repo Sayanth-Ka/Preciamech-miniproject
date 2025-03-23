@@ -155,8 +155,7 @@ section {
 
 @keyframes scroll {
   0% { transform: translateX(0); }
-  50% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
 }
 
 
@@ -1089,9 +1088,9 @@ footer {
 }
 
 .service-card {
-  min-width: 220px;
-  margin-right: 20px;
-  padding: 12px;
+  min-width: 180px;
+  margin-right: 15px;
+  padding: 10px;
 }
 
 
