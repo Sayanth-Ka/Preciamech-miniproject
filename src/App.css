@@ -149,14 +149,14 @@ section {
   margin: 3rem auto;
   max-width: 1200px;
   padding: 0 1rem;
-  animation: scroll 30s linear infinite;
+  /* animation: scroll 30s linear infinite;  Removed animation */
   transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@keyframes scroll {
+/* @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-100%); }
-}
+} */
 
 
 .service-card {
@@ -174,7 +174,12 @@ section {
   overflow: hidden;
   border: 1px solid transparent;
   background-image: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-  min-height: 400px;
+  /* min-height: 400px; Removed min-height */
+  width: 100%; /* Added width to fit container */
+  max-width: 200px; /* Added max-width for responsiveness */
+  margin: 0 10px; /* Adjusted margin */
+  flex: 0 0 auto; /* Ensured proper flex behavior */
+
 }
 
 .service-card::after {
@@ -474,14 +479,19 @@ section {
   position: relative;
   display: flex;
   flex-direction: column;
-  animation: scrollProject 30s linear infinite;
+  /* animation: scrollProject 30s linear infinite; Removed animation */
+  width: 100%; /* Added width to fit container */
+  max-width: 200px; /* Added max-width for responsiveness */
+  margin: 0 10px; /* Adjusted margin */
+  flex: 0 0 auto; /* Ensured proper flex behavior */
+
 }
 
-@keyframes scrollProject {
+/* @keyframes scrollProject {
   0% { transform: translateX(0) scale(1); }
   50% { transform: translateX(-50%) scale(1.02); }
   100% { transform: translateX(0) scale(1); }
-}
+} */
 
 .project-card:hover {
   transform: translateY(-5px) scale(1.03);
