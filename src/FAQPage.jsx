@@ -14,6 +14,7 @@ const FAQPage = () => {
 
   useEffect(() => {
     fetchFAQs();
+    window.scrollTo(0, 0);
   }, []);
 
   const fetchFAQs = async () => {
