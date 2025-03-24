@@ -192,13 +192,24 @@
 
 /* Projects grid */
 .projects-list {
-  display: grid;
-  gap: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
   padding: 1rem;
   box-sizing: border-box;
   width: 100%;
   align-items: start;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.project-card {
+  width: 280px;
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+}
+
+.project-image {
+  height: 160px;
 }
 
 /* Form elements */
