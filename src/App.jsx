@@ -876,22 +876,14 @@ export default function App() {
           </div>
           <button className="mobile-menu-btn" onClick={toggleMobileMenu}>☰</button>
           <div className={`nav-links ${mobileMenuOpen ? 'active' : ''}`}>
-            <a href="/admin" onClick={() => navigate('/admin')}>
-              Admin Login</a>
+            <a href="/admin" onClick={() => navigate('/admin')}>Admin Login</a>
             <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
             <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQs</a>
+            <a href="#pic" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <div className="dropdown-container">
-              <button className="dropdown-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>More Links</button>
-              <div className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}>
-                <ul>
-                  <li onClick={() => {window.location.href='#about'; setIsDropdownOpen(false)}}>About Us</li>
-                  <li onClick={() => {window.location.href='#faq'; setIsDropdownOpen(false)}}>FAQs</li>
-                  <li onClick={() => {window.location.href='#pic'; setIsDropdownOpen(false)}}>Gallery</li>
-                </ul>
-              </div>
-            </div>
           </div>
         </nav>
       )}
