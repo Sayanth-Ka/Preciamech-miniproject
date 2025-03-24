@@ -383,60 +383,7 @@ const AdminPage = () => {
                 <button type="submit">Add Project</button>
               </form>
 
-              <div className="projects-list">
-                {projects.map((project) => (
-                  <div key={project.id} className="project-card">
-                    {editingProject?.id === project.id ? (
-                      <div>
-                        <input
-                          type="text"
-                          value={editingProject.title}
-                          onChange={(e) => setEditingProject({
-                            ...editingProject,
-                            title: e.target.value
-                          })}
-                        />
-                        <textarea
-                          value={editingProject.description}
-                          onChange={(e) => setEditingProject({
-                            ...editingProject,
-                            description: e.target.value
-                          })}
-                        />
-                        <input
-                          type="text"
-                          placeholder="Image URL"
-                          value={imageUrl}
-                          onChange={(e) => setImageUrl(e.target.value)}
-                        />
-                        <button onClick={() => handleEditProject(project.id)}>
-                          Save Changes
-                        </button>
-                        <button onClick={() => setEditingProject(null)}>
-                          Cancel
-                        </button>
-                      </div>
-                    ) : (
-                      <div className="project-content">
-                        <img className="project-image" src={project.image} alt={project.title} />
-                        <h4 className="project-title">{project.title}</h4>
-                        <p className="project-description">{project.description}</p>
-                        <div className="button-group">
-                          <button className="edit-btn" onClick={() => setEditingProject(project)}>
-                            Edit
-                          </button>
-                          <button className="hide-btn" onClick={() => toggleProjectVisibility(project.id, project.visible)}>
-                            {project.visible ? 'Hide' : 'Show'}
-                          </button>
-                          <button className="delete-btn" onClick={() => handleDeleteProject(project.id)}>
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
+              {/* Project list removed */}
             </section>
           </div>
         </div>
