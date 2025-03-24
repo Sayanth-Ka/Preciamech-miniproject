@@ -395,10 +395,13 @@ const AdminPage = () => {
                         <p className="project-nature">{project.nature}</p>
                       </div>
                       <div className="project-actions">
+                        <button onClick={() => setEditingProject(project)} className="edit-button">
+                          Edit
+                        </button>
                         <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
                           {project.visible ? 'Hide' : 'Show'}
                         </button>
-                        <button onClick={() => handleDeleteProject(project.id)}>
+                        <button onClick={() => handleDeleteProject(project.id)} className="delete-button">
                           Delete
                         </button>
                       </div>
