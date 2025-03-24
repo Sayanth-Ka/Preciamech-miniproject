@@ -404,41 +404,9 @@ const AdminPage = () => {
                         <p className="project-nature">{project.nature}</p>
                       </div>
                       <div className="project-actions">
-                        {editingProject?.id === project.id ? (
-                          <div className="edit-form">
-                            <input
-                              type="text"
-                              value={editingProject.title}
-                              onChange={(e) => setEditingProject({...editingProject, title: e.target.value})}
-                            />
-                            <input
-                              type="text"
-                              value={editingProject.client}
-                              onChange={(e) => setEditingProject({...editingProject, client: e.target.value})}
-                            />
-                            <input
-                              type="text"
-                              value={editingProject.type}
-                              onChange={(e) => setEditingProject({...editingProject, type: e.target.value})}
-                            />
-                            <input
-                              type="text"
-                              value={editingProject.nature}
-                              onChange={(e) => setEditingProject({...editingProject, nature: e.target.value})}
-                            />
-                            <input
-                              type="text"
-                              placeholder="New Image URL (optional)"
-                              onChange={(e) => setImageUrl(e.target.value)}
-                            />
-                            <button onClick={() => handleEditProject(project.id)}>Save</button>
-                            <button onClick={() => setEditingProject(null)}>Cancel</button>
-                          </div>
-                        ) : (
-                          <button onClick={() => setEditingProject(project)} className="edit-button">
-                            Edit
-                          </button>
-                        )}
+                        <button onClick={() => setEditingProject(project)} className="edit-button">
+                          Edit
+                        </button>
                         <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
                           {project.visible ? 'Hide' : 'Show'}
                         </button>
@@ -451,6 +419,50 @@ const AdminPage = () => {
                 ))}
               </div>
             </section>
+          </div>
+        </div>
+      )}
+
+      {/* Edit Project Modal */}
+      {editingProject && (
+        <div className="modal-overlay" onClick={() => setEditingProject(null)}>
+          <div className="edit-modal" onClick={(e) => e.stopPropagation()}>
+            <h3>Edit Project</h3>
+            <div className="edit-form">
+              <input
+                type="text"
+                value={editingProject.title}
+                onChange={(e) => setEditingProject({...editingProject, title: e.target.value})}
+                placeholder="Project Title"
+              />
+              <input
+                type="text"
+                value={editingProject.client}
+                onChange={(e) => setEditingProject({...editingProject, client: e.target.value})}
+                placeholder="Client Name"
+              />
+              <input
+                type="text"
+                value={editingProject.type}
+                onChange={(e) => setEditingProject({...editingProject, type: e.target.value})}
+                placeholder="Project Type"
+              />
+              <input
+                type="text"
+                value={editingProject.nature}
+                onChange={(e) => setEditingProject({...editingProject, nature: e.target.value})}
+                placeholder="Project Nature"
+              />
+              <input
+                type="text"
+                placeholder="New Image URL (optional)"
+                onChange={(e) => setImageUrl(e.target.value)}
+              />
+              <div className="modal-buttons">
+                <button onClick={() => handleEditProject(editingProject.id)} className="save-button">Save</button>
+                <button onClick={() => setEditingProject(null)} className="cancel-button">Cancel</button>
+              </div>
+            </div>
           </div>
         </div>
       )}
