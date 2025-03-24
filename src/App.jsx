@@ -16,10 +16,25 @@ export default function App() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Add dropdown state
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isDropdownOpen) {
+        setIsDropdownOpen(false);
+      }
+      if (mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isDropdownOpen, mobileMenuOpen]);
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
+    if (isDropdownOpen) setIsDropdownOpen(false);
   };
 
   const closeMobileMenu = () => {
@@ -867,13 +882,13 @@ export default function App() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
-            <div className="dropdown-container"> {/* Dropdown container */}
-              <button className="dropdown-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>Dropdown</button>
-              <div className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}> {/* Dropdown menu */}
+            <div className="dropdown-container">
+              <button className="dropdown-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>More Links</button>
+              <div className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}>
                 <ul>
-                  <li>Dropdown Item 1</li>
-                  <li>Dropdown Item 2</li>
-                  <li>Dropdown Item 3</li>
+                  <li onClick={() => {window.location.href='#about'; setIsDropdownOpen(false)}}>About Us</li>
+                  <li onClick={() => {window.location.href='#faq'; setIsDropdownOpen(false)}}>FAQs</li>
+                  <li onClick={() => {window.location.href='#pic'; setIsDropdownOpen(false)}}>Gallery</li>
                 </ul>
               </div>
             </div>

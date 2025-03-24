@@ -1225,7 +1225,8 @@ footer {
     height: 36px;
     font-size: 16px;
   }
-}.view-more-faq {
+}
+.view-more-faq {
   display: block;
   width: fit-content;
   margin: 30px auto;
@@ -1291,4 +1292,63 @@ footer {
 
 .copyright p {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.dropdown-container {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: transparent;
+  color: white;
+  border: none;
+  padding: 0.8rem 1rem;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.dropdown-btn:after {
+  content: '▼';
+  font-size: 0.8rem;
+  margin-left: 8px;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(34, 34, 34, 0.95);
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  padding: 0.8rem 1rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropdown-menu li:hover {
+  background: rgba(255, 163, 72, 0.2);
+  color: #ffc176;
+  transform: translateX(5px);
 }
