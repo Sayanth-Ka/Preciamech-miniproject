@@ -399,19 +399,21 @@ const AdminPage = () => {
                         </button>
                       </div>
                     ) : (
-                      <div className='trial'>
+                      <div>
                         <img src={project.image} alt={project.title} />
                         <h4>{project.title}</h4>
                         <p>{project.description}</p>
-                        <button onClick={() => setEditingProject(project)}>
-                          Edit
-                        </button>
-                        <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
-                          {project.visible ? 'Hide' : 'Show'}
-                        </button>
-                        <button onClick={() => handleDeleteProject(project.id, project.image)}>
-                          Delete
-                        </button>
+                        <div className="button-group">
+                          <button onClick={() => setEditingProject(project)}>
+                            Edit
+                          </button>
+                          <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
+                            {project.visible ? 'Hide' : 'Show'}
+                          </button>
+                          <button onClick={() => handleDeleteProject(project.id, project.image)}>
+                            Delete
+                          </button>
+                        </div>
                       </div>
                     )}
                   </div>
