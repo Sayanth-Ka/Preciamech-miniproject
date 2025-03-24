@@ -919,13 +919,3 @@ export default function App() {
   );
 }
 
-useEffect(() => {
-    const handleScroll = () => {
-      if (isDropdownOpen) {
-        setIsDropdownOpen(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isDropdownOpen]);
