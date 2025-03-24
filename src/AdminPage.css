@@ -227,6 +227,44 @@ input, textarea {
   box-sizing: border-box;
 }
 
+.success {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 1rem;
+  border-radius: 4px;
+  z-index: 1000;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.edit-form input {
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.edit-form button {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 /* Button variants */
 .edit-btn { background-color: #4CAF50; }
 .hide-btn { background-color: #ff9800; }

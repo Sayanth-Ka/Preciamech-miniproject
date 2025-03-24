@@ -26,6 +26,15 @@ const AdminPage = () => {
   const [editingProject, setEditingProject] = useState(null);
   const [successMessage, setSuccessMessage] = useState('');
 
+  useEffect(() => {
+    if (successMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage('');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [successMessage]);
+
   // Fetch projects
   const fetchProjects = async () => {
     try {
@@ -395,9 +404,41 @@ const AdminPage = () => {
                         <p className="project-nature">{project.nature}</p>
                       </div>
                       <div className="project-actions">
-                        <button onClick={() => setEditingProject(project)} className="edit-button">
-                          Edit
-                        </button>
+                        {editingProject?.id === project.id ? (
+                          <div className="edit-form">
+                            <input
+                              type="text"
+                              value={editingProject.title}
+                              onChange={(e) => setEditingProject({...editingProject, title: e.target.value})}
+                            />
+                            <input
+                              type="text"
+                              value={editingProject.client}
+                              onChange={(e) => setEditingProject({...editingProject, client: e.target.value})}
+                            />
+                            <input
+                              type="text"
+                              value={editingProject.type}
+                              onChange={(e) => setEditingProject({...editingProject, type: e.target.value})}
+                            />
+                            <input
+                              type="text"
+                              value={editingProject.nature}
+                              onChange={(e) => setEditingProject({...editingProject, nature: e.target.value})}
+                            />
+                            <input
+                              type="text"
+                              placeholder="New Image URL (optional)"
+                              onChange={(e) => setImageUrl(e.target.value)}
+                            />
+                            <button onClick={() => handleEditProject(project.id)}>Save</button>
+                            <button onClick={() => setEditingProject(null)}>Cancel</button>
+                          </div>
+                        ) : (
+                          <button onClick={() => setEditingProject(project)} className="edit-button">
+                            Edit
+                          </button>
+                        )}
                         <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
                           {project.visible ? 'Hide' : 'Show'}
                         </button>
