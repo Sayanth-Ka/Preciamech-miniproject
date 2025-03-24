@@ -319,41 +319,33 @@ export default function App() {
   // Additional FAQs for the expandable FAQ section
   const faqs = [
     {
-      question: "What services do you provide?",
-      answer: "We offer comprehensive engineering services including architectural design, project management, and technical consulting across various industries."
+      question: "What is Preciamech Engineering Consultants (PEC)?",
+      answer: "Preciamech Engineering Consultants provides engineering consultancy services for various industrial segments, specializing in pharmaceuticals, chemicals, food & beverages, and FMCG."
     },
     {
-      question: "How do you ensure project quality?",
-      answer: "We maintain strict quality control measures, follow industry best practices, and employ experienced professionals to ensure the highest standards in all our projects."
+      question: "What industries does PEC serve?",
+      answer: "PEC serves API plants, formulation plants, chemical plants, food processing plants, beverage industries, and FMCG sectors."
     },
     {
-      question: "What is your project timeline?",
-      answer: "Project timelines vary based on scope and complexity. We provide detailed project schedules during the initial consultation phase."
+      question: "What types of engineering services does PEC provide?",
+      answer: "PEC provides process, electrical, civil, instrumentation, architectural, mechanical, and HVAC engineering services."
     },
     {
-      question: "Do you handle international projects?",
-      answer: "Yes, we have experience working with clients globally and can adapt to different international standards and requirements."
+      question: "What stages of project development does PEC handle?",
+      answer: "PEC offers services for concept engineering, basic engineering, detailed engineering, procurement assistance, construction management, and documentation."
+    },
+    {
+      question: "Does PEC provide architectural design services?",
+      answer: "Yes, PEC offers architectural design services, including plot plan development, statutory drawings, floor plans, elevations, structural glazing, and 3D designs."
     },
     // Additional FAQs that will be shown when "View More" is clicked
     {
-      question: "What industries do you specialize in?",
-      answer: "We specialize in Pharmaceuticals (API & Formulations), Chemical, Food & Beverages, and FMCG industries with over 25 years of experience."
+      question: "What process engineering services does PEC offer?",
+      answer: "PEC provides design basis, energy balance, process flow diagrams (PFD), piping & instrumentation diagrams (P&ID), process datasheets, and assistance in commissioning process systems."
     },
     {
-      question: "How do you handle project revisions?",
-      answer: "We have a structured revision process with defined milestones for client feedback. Our flexible approach ensures your requirements are fully met while maintaining project timelines."
-    },
-    {
-      question: "What is your approach to sustainable engineering?",
-      answer: "Sustainability is integral to our designs. We incorporate energy-efficient systems, sustainable materials, and environmentally responsible practices in all our projects."
-    },
-    {
-      question: "How do you manage project costs?",
-      answer: "We employ rigorous cost estimation and control measures throughout the project lifecycle. Regular budget reviews and value engineering ensure optimal use of resources."
-    },
-    {
-      question: "What software and tools do you use?",
-      answer: "We utilize industry-leading software including AutoCAD, Revit, SolidWorks, ANSYS, and specialized tools for specific engineering disciplines to ensure precision and efficiency."
+      question: " Does PEC offer mechanical engineering services?",
+      answer: "Yes, PEC handles equipment layout, piping layout, statutory drawings for PESO/IBR approvals, and procurement assistance."
     }
   ];
 
@@ -773,7 +765,7 @@ export default function App() {
         <section id="faq" className="faq">
           <h2 data-aos="fade-up">Frequently Asked Questions</h2>
           <div className="faq-grid" data-aos="fade-up" data-aos-delay="100">
-            {faqs.slice(0, 4).map((faq, index) => (
+            {faqs.slice(0, 6).map((faq, index) => (
               <div className="faq-item" key={index}>
                 <h3>{faq.question}</h3>
                 <p>{faq.answer}</p>
