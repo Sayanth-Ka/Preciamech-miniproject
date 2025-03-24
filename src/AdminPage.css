@@ -276,6 +276,8 @@ input, textarea {
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .edit-modal {

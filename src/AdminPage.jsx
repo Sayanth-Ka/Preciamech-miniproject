@@ -404,7 +404,13 @@ const AdminPage = () => {
                         <p className="project-nature">{project.nature}</p>
                       </div>
                       <div className="project-actions">
-                        <button onClick={() => setEditingProject(project)} className="edit-button">
+                        <button 
+                          onClick={() => {
+                            setEditingProject({...project});
+                            setImageUrl('');
+                          }} 
+                          className="edit-button"
+                        >
                           Edit
                         </button>
                         <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
