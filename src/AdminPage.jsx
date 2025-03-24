@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { db, storage, authenticateAdmin } from './firebaseConfig';
+import { db, authenticateAdmin } from './firebaseConfig';
 import { collection, addDoc, getDocs, query, orderBy, doc, updateDoc, deleteDoc, serverTimestamp } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import './AdminPage.css';
 
 const AdminPage = () => {
@@ -25,6 +24,7 @@ const AdminPage = () => {
   const [imageUrl, setImageUrl] = useState('');
   const [editingQuestion, setEditingQuestion] = useState(null);
   const [editingProject, setEditingProject] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
 
   // Fetch projects
   const fetchProjects = async () => {
@@ -95,6 +95,7 @@ const AdminPage = () => {
       setAnswerText('');
       setCurrentQuestionId(null);
       fetchPendingQuestions();
+      setSuccessMessage('Answer submitted successfully!');
     } catch (error) {
       console.error("Error submitting answer:", error);
     }
@@ -109,6 +110,7 @@ const AdminPage = () => {
         updatedAt: serverTimestamp()
       });
       fetchPendingQuestions();
+      setSuccessMessage('Publish status updated successfully!');
     } catch (error) {
       console.error("Error toggling publish status:", error);
     }
@@ -124,6 +126,7 @@ const AdminPage = () => {
       });
       setEditingQuestion(null);
       fetchPendingQuestions();
+      setSuccessMessage('Question edited successfully!');
     } catch (error) {
       console.error("Error editing question:", error);
     }
@@ -132,12 +135,11 @@ const AdminPage = () => {
   // Add new project
   const handleAddProject = async (e) => {
     e.preventDefault();
+    if (!isValidUrl(imageUrl)) {
+      alert('Please enter a valid image URL');
+      return;
+    }
     try {
-      if (!imageUrl) {
-        alert('Please enter an image URL');
-        return;
-      }
-
       await addDoc(collection(db, "projects"), {
         title: projectTitle,
         client: projectClient,
@@ -154,7 +156,7 @@ const AdminPage = () => {
       setProjectNature('');
       setImageUrl('');
       fetchProjects();
-      alert('Project added successfully!');
+      setSuccessMessage('Project added successfully!');
     } catch (error) {
       console.error("Error adding project:", error);
       alert('Failed to add project');
@@ -171,14 +173,15 @@ const AdminPage = () => {
         updatedAt: serverTimestamp()
       };
 
-      if (imageUrl) { // Use imageUrl instead of projectImage
+      if (imageUrl) {
         updateData.image = imageUrl;
       }
 
       await updateDoc(projectRef, updateData);
       setEditingProject(null);
-      setImageUrl(''); // Clear imageUrl after update
+      setImageUrl('');
       fetchProjects();
+      setSuccessMessage('Project edited successfully!');
     } catch (error) {
       console.error("Error editing project:", error);
     }
@@ -193,18 +196,19 @@ const AdminPage = () => {
         updatedAt: serverTimestamp()
       });
       fetchProjects();
+      setSuccessMessage('Project visibility updated successfully!');
     } catch (error) {
       console.error("Error toggling project visibility:", error);
     }
   };
 
   // Delete project
-  const handleDeleteProject = async (projectId, imageUrl) => {
+  const handleDeleteProject = async (projectId) => {
     if (window.confirm('Are you sure you want to delete this project?')) {
       try {
         await deleteDoc(doc(db, "projects", projectId));
-        // Image deletion is not needed since we're using URLs now.
         fetchProjects();
+        setSuccessMessage('Project deleted successfully!');
       } catch (error) {
         console.error("Error deleting project:", error);
       }
@@ -217,10 +221,22 @@ const AdminPage = () => {
       try {
         await deleteDoc(doc(db, "questions", questionId));
         fetchPendingQuestions();
+        setSuccessMessage('Question deleted successfully!');
       } catch (error) {
         console.error("Error deleting question:", error);
       }
     }
+  };
+
+  // Validate URL
+  const isValidUrl = (url) => {
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)\\.)+[a-z]{2,6}|'+ // domain name
+      'localhost|'+ // localhost
+      '\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}|'+ // IP
+      '\\[?[a-f0-9]*:[a-f0-9:%.]*\\]?)'+ // IPv6
+      '(\\:\\d+)?(\\/[-a-z0-9+&@#/%=~_|$?!:.]*[a-z0-9+&@#/%=~_|$])?$', 'i'); // fragment locator
+    return !!pattern.test(url);
   };
 
   return (
@@ -252,11 +268,13 @@ const AdminPage = () => {
           <div className="admin-header">
             <h2>Admin Dashboard</h2>
             <button onClick={() => {
-  sessionStorage.removeItem('isAdmin');
-  setIsAdmin(false);
-  navigate('/');
-}}>Logout</button>
+              sessionStorage.removeItem('isAdmin');
+              setIsAdmin(false);
+              navigate('/');
+            }}>Logout</button>
           </div>
+
+          {successMessage && <p className="success">{successMessage}</p>}
 
           <div className="admin-sections">
             <section className="questions-section">
@@ -390,7 +408,7 @@ const AdminPage = () => {
                           placeholder="Image URL"
                           value={imageUrl}
                           onChange={(e) => setImageUrl(e.target.value)}
-                        /> {/* Changed to text input for URL */}
+                        />
                         <button onClick={() => handleEditProject(project.id)}>
                           Save Changes
                         </button>
@@ -410,7 +428,7 @@ const AdminPage = () => {
                           <button className="hide-btn" onClick={() => toggleProjectVisibility(project.id, project.visible)}>
                             {project.visible ? 'Hide' : 'Show'}
                           </button>
-                          <button className="delete-btn" onClick={() => handleDeleteProject(project.id, project.image)}>
+                          <button className="delete-btn" onClick={() => handleDeleteProject(project.id)}>
                             Delete
                           </button>
                         </div>
