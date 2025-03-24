@@ -171,3 +171,12 @@ input, textarea {
   border-radius: 4px;
   padding: 5px;
 }
+
+.projects-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  padding: 1rem;
+  box-sizing: border-box;
+}
