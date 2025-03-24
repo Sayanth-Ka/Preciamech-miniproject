@@ -633,8 +633,30 @@ export default function App() {
         {/* Projects section with horizontal scrolling */}
         <section id="projects" className="projects">
           <h2 data-aos="fade-up">Recent Projects</h2>
-          <div className="project-coming-soon">
-            <p>Project showcase coming soon...</p>
+          <div className="projects-container">
+            {projects.map((project, index) => (
+              <div 
+                key={project.id} 
+                className="project-card-new"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+                onClick={() => setSelectedProject(project)}
+              >
+                <div className="project-image-wrapper">
+                  <img 
+                    src={project.image || 'https://imgur.com/AsD6vaC.jpg'}
+                    alt={project.title}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="project-content">
+                  <h3>{project.title}</h3>
+                  <p className="project-client">{project.client}</p>
+                  <p className="project-type">{project.type}</p>
+                  <span className="view-project">View Details →</span>
+                </div>
+              </div>
+            ))}
           </div>
 
           {selectedProject && (

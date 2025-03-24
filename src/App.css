@@ -450,6 +450,91 @@ section {
 }
 
 
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.project-card-new {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card-new:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.project-image-wrapper {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card-new:hover .project-image-wrapper img {
+  transform: scale(1.1);
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-content h3 {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.project-client {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-type {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.view-project {
+  display: inline-block;
+  color: #ff9800;
+  font-weight: 500;
+  transition: transform 0.3s ease;
+}
+
+.project-card-new:hover .view-project {
+  transform: translateX(10px);
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .project-image-wrapper {
+    height: 180px;
+  }
+}
+
 .project-card {
   min-width: 180px;
   max-width: 200px;
