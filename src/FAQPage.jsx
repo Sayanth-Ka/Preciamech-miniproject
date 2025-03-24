@@ -75,24 +75,6 @@ const FAQPage = () => {
       </div>
 
       <div className="faq-content">
-        <div className="faq-list">
-          {faqs.length > 0 ? (
-            faqs.map((faq, index) => (
-              <div className="faq-item" key={index}>
-                <div className="faq-question">
-                  <h3>Q: {faq.question}</h3>
-                  <small>Asked on: {faq.date}</small>
-                </div>
-                <div className="faq-answer">
-                  <p>A: {faq.answer}</p>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p>No FAQs available yet. Be the first to ask a question!</p>
-          )}
-        </div>
-
         <div className="ask-question">
           <h2>Have a Question?</h2>
           <form onSubmit={handleSubmitQuestion}>
@@ -123,6 +105,24 @@ const FAQPage = () => {
             </button>
             {submitMessage && <p className="submit-message">{submitMessage}</p>}
           </form>
+        </div>
+
+        <div className="faq-list">
+          {faqs.length > 0 ? (
+            faqs.map((faq, index) => (
+              <div className="faq-item" key={index}>
+                <div className="faq-question">
+                  <h3>Q: {faq.question}</h3>
+                  <small>Asked on: {faq.date}</small>
+                </div>
+                <div className="faq-answer">
+                  <p>A: {faq.answer}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p>No FAQs available yet. Be the first to ask a question!</p>
+          )}
         </div>
       </div>
     </div>
