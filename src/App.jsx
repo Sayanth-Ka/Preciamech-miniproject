@@ -596,14 +596,7 @@ export default function App() {
                 ))}
               </div>
             </div>
-            <button 
-              className="service-scroll-btn next-btn" 
-              onClick={() => navigateServices('next')}
-              aria-label="Next services"
-            >
-              →
-            </button>
-          </div>
+            </div>
 
           {selectedService && (
             <div
