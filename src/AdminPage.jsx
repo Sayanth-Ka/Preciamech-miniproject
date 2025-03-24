@@ -178,7 +178,9 @@ const AdminPage = () => {
       const projectRef = doc(db, "projects", projectId);
       let updateData = {
         title: editingProject.title,
-        description: editingProject.description,
+        client: editingProject.client,
+        type: editingProject.type,
+        nature: editingProject.nature,
         updatedAt: serverTimestamp()
       };
 
