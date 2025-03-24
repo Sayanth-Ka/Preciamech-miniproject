@@ -50,7 +50,6 @@
   box-sizing: border-box;
   padding: 0;
   display: flex;
-  flex-direction: column;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -164,12 +163,12 @@
 /* Projects grid */
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   width: 100%;
   align-items: start;
+  justify-content: center;
 }
 
 /* Form elements */
