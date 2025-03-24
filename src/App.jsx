@@ -93,9 +93,9 @@ export default function App() {
       id: 1,
       title: "Architectural Design",
       image:
-        "https://images.unsplash.com/photo-1581092334651-ddf26d9a09d0?fit=crop&w=600&h=400",
+        "https://i.imgur.com/nCHOPWL.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1505238680356-667803448bb6?fit=crop&w=600&h=300",
+        "https://i.imgur.com/nCHOPWL.jpg",
       details: {
         title: "Architectural Design",
         description: "Innovative solutions for complex engineering challenges",
@@ -113,9 +113,9 @@ export default function App() {
       id: 2,
       title: "Civil & Structural Design",
       image:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?fit=crop&w=600&h=400",
+        "https://i.imgur.com/2QgaVl1.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fit=crop&w=600&h=300",
+        "https://i.imgur.com/2QgaVl1.jpg",
       details: {
         title: "Civil & Structural Design",
         description: "Streamlined project delivery and resource optimization",
@@ -137,9 +137,9 @@ export default function App() {
       id: 3,
       title: "Process Engineering",
       image:
-        "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?fit=crop&w=600&h=400",
+        "https://i.imgur.com/OeIvGxT.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/OeIvGxT.jpg",
       details: {
         title: "Process Engineering",
         description: "Expert guidance for technical challenges",
@@ -159,9 +159,9 @@ export default function App() {
       id: 4,
       title: "Mechanical Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/yMHCg1B.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/yMHCg1B.jpg",
       details: {
         title: "Mechanical Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -181,9 +181,9 @@ export default function App() {
       id: 5,
       title: "Instrumentation Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/StRZmnH.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/StRZmnH.jpg",
       details: {
         title: "Instrumentation Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -204,9 +204,9 @@ export default function App() {
       id: 6,
       title: "Water System Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/0xsClxm.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/0xsClxm.jpg",
       details: {
         title: "Water System Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -227,9 +227,9 @@ export default function App() {
       id: 7,
       title: "Sewage & Effluent Treatment System Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/yVFAxzV.png",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/yVFAxzV.png",
       details: {
         title: "Sewage & Effluent Treatment System Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -250,9 +250,9 @@ export default function App() {
       id: 8,
       title: "Electrical Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/Xm9OWwL.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/Xm9OWwL.jpg",
       details: {
         title: "Electrical Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -272,9 +272,9 @@ export default function App() {
       id: 9,
       title: "HVAC Engineering",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/1W4kCE6.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/1W4kCE6.jpg",
       details: {
         title: "HVAC Engineering",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -295,9 +295,9 @@ export default function App() {
       id: 10,
       title: "Fire Protection System",
       image:
-        "https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?fit=crop&w=600&h=400",
+        "https://i.imgur.com/YH9eRj9.jpg",
       cardImage:
-        "https://images.unsplash.com/photo-1581093458791-9d19a807b82c?fit=crop&w=600&h=300",
+        "https://i.imgur.com/YH9eRj9.jpg",
       details: {
         title: "Fire Protection System",
         description: "Comprehensive mechanical solutions for industrial applications",
@@ -906,13 +906,23 @@ export default function App() {
                 <a href="#services">Services</a>
                 <a href="#projects">Projects</a>
                 <a href="#about">About Us</a>
+                <a href="#faq">FAQs</a>
                 <a href="#contact">Contact</a>
               </div>
               <div className="footer-column">
                 <h4>Contact Us</h4>
-                <p>Email: info@preciamech.com</p>
-                <p>Phone: +91 9867XXXXXX</p>
-                <p>Location: Mumbai, India</p>
+                <p>Office Address:
+                  Office No. 507, 5th Floor, A Wing, Kukreja Plaza
+                  Sector – 11, CBD Belapur, Navi Mumbai
+                  Maharashtra, India – 400614</p>
+                <p>Telephone No.:
+                  +91 22 4602 0833</p>
+                <p>Email:
+                  ramesan.kasthuri@preciamech.in</p>
+                <p>GST No.:
+                  27AHRPB6745M1ZQ</p>
+                <p>Bank.:
+                IDBI Bank, CBD Belapur, Navi Mumbai</p>
               </div>
             </div>
           </div>
