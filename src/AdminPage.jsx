@@ -399,7 +399,7 @@ const AdminPage = () => {
                         </button>
                       </div>
                     ) : (
-                      <div>
+                      <div className='trial'>
                         <img src={project.image} alt={project.title} />
                         <h4>{project.title}</h4>
                         <p>{project.description}</p>
