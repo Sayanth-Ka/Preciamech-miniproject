@@ -16,6 +16,7 @@ export default function App() {
   const [currentProjectIndex, setCurrentProjectIndex] = useState(0);
   const [currentPage, setCurrentPage] = useState('home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // Add dropdown state
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
@@ -766,8 +767,7 @@ export default function App() {
           </div>
 
           <button 
-            className="view-more-faq" 
-            onClick={() => navigate("/faq")} // Navigates to FAQPage.jsx
+            className="view-more-faq"             onClick={() => navigate("/faq")} // Navigates to FAQPage.jsx
           >
             View More FAQs
           </button>
@@ -867,6 +867,16 @@ export default function App() {
             <a href="#services" onClick={() => setMobileMenuOpen(false)}>Services</a>
             <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
             <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
+            <div className="dropdown-container"> {/* Dropdown container */}
+              <button className="dropdown-btn" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>Dropdown</button>
+              <div className={`dropdown-menu ${isDropdownOpen ? 'active' : ''}`}> {/* Dropdown menu */}
+                <ul>
+                  <li>Dropdown Item 1</li>
+                  <li>Dropdown Item 2</li>
+                  <li>Dropdown Item 3</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </nav>
       )}
@@ -908,3 +918,14 @@ export default function App() {
     </div>
   );
 }
+
+useEffect(() => {
+    const handleScroll = () => {
+      if (isDropdownOpen) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isDropdownOpen]);

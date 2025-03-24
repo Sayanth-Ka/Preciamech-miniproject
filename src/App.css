@@ -784,20 +784,38 @@ footer {
 
   .nav-links {
     display: none;
-    width: 100%;
+    width: 250px;
     position: fixed;
     top: 70px;
-    left: 0;
-    background: rgba(255, 163, 72, 0.95);
-    padding: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    right: 0;
+    background: rgba(34, 34, 34, 0.95);
+    padding: 1.5rem;
+    box-shadow: -2px 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    border-radius: 0 0 0 12px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
   }
 
   .nav-links.active {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    transform: translateX(0);
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255, 163, 72, 0.2);
+    color: #ffc176;
+    transform: translateX(5px);
   }
 
   .service-card, .project-card {
