@@ -339,7 +339,7 @@ const AdminPage = () => {
 
             <section className="projects-section">
               <h3>Project Management</h3>
-              <form onSubmit={handleAddProject}>
+              <form onSubmit={handleAddProject} className="admin-form">
                 <input
                   type="text"
                   placeholder="Project Title"
@@ -383,7 +383,29 @@ const AdminPage = () => {
                 <button type="submit">Add Project</button>
               </form>
 
-              {/* Project list removed */}
+              <div className="projects-grid">
+                {projects.map((project) => (
+                  <div key={project.id} className="project-item">
+                    <div className="project-content">
+                      <img src={project.image} alt={project.title} className="project-image"/>
+                      <div className="project-info">
+                        <h4>{project.title}</h4>
+                        <p className="project-client">{project.client}</p>
+                        <p className="project-type">{project.type}</p>
+                        <p className="project-nature">{project.nature}</p>
+                      </div>
+                      <div className="project-actions">
+                        <button onClick={() => toggleProjectVisibility(project.id, project.visible)}>
+                          {project.visible ? 'Hide' : 'Show'}
+                        </button>
+                        <button onClick={() => handleDeleteProject(project.id)}>
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </section>
           </div>
         </div>
